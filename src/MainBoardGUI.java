@@ -9,6 +9,7 @@ public class MainBoardGUI extends JFrame {
     private JProgressBar player2Progress;
     private JLabel turnLabel;
     private JButton nextTurnButton;
+    private JButton nextQuestionButton;
     private JPanel racePanel;
     private JPanel questionPanel;
     private AirplaneRacePanel airplaneRacePanel;
@@ -27,22 +28,22 @@ public class MainBoardGUI extends JFrame {
 
         JPanel player1Panel = new JPanel(new BorderLayout());
         player1Label = new JLabel(player1Name + ": 0 puntos");
-        player1Label.setFont(new java.awt.Font("Arial", 1, 18));
+        player1Label.setFont(new Font("Arial", Font.BOLD, 24));
         player1Progress = new JProgressBar(0, 10);
         player1Progress.setValue(0);
         player1Progress.setStringPainted(true);
-        player1Progress.setFont(new java.awt.Font("Arial", 1, 18));
+        player1Progress.setFont(new Font("Arial", Font.BOLD, 24));
         player1Panel.add(player1Label, BorderLayout.WEST);
         player1Panel.add(player1Progress, BorderLayout.CENTER);
         racePanel.add(player1Panel);
 
         JPanel player2Panel = new JPanel(new BorderLayout());
         player2Label = new JLabel(player2Name + ": 0 puntos");
-        player2Label.setFont(new java.awt.Font("Arial", 1, 18));
+        player2Label.setFont(new Font("Arial", Font.BOLD, 24));
         player2Progress = new JProgressBar(0, 10);
         player2Progress.setValue(0);
         player2Progress.setStringPainted(true);
-        player2Progress.setFont(new java.awt.Font("Arial", 1, 18));
+        player2Progress.setFont(new Font("Arial", Font.BOLD, 24));
         player2Panel.add(player2Label, BorderLayout.WEST);
         player2Panel.add(player2Progress, BorderLayout.CENTER);
         racePanel.add(player2Panel);
@@ -52,12 +53,16 @@ public class MainBoardGUI extends JFrame {
         // Panel inferior para las preguntas
         questionPanel = new JPanel(new BorderLayout());
         turnLabel = new JLabel("Turno: Jugador 1");
-        turnLabel.setFont(new java.awt.Font("Arial", 1, 18));
+        turnLabel.setFont(new Font("Arial", Font.BOLD, 24));
         questionPanel.add(turnLabel, BorderLayout.NORTH);
 
         nextTurnButton = new JButton("Siguiente Turno");
-        nextTurnButton.setFont(new java.awt.Font("Arial", 1, 18));
+        nextTurnButton.setFont(new Font("Arial", Font.BOLD, 24));
         questionPanel.add(nextTurnButton, BorderLayout.SOUTH);
+
+        nextQuestionButton = new JButton("Siguiente Pregunta");
+        nextQuestionButton.setFont(new Font("Arial", Font.BOLD, 24));
+        questionPanel.add(nextQuestionButton, BorderLayout.CENTER);
 
         add(questionPanel, BorderLayout.CENTER);
     }
@@ -84,6 +89,10 @@ public class MainBoardGUI extends JFrame {
 
     public void addNextTurnListener(ActionListener listener) {
         nextTurnButton.addActionListener(listener);
+    }
+
+    public void addNextQuestionListener(ActionListener listener) {
+        nextQuestionButton.addActionListener(listener);
     }
 
     public JPanel getQuestionPanel() {
