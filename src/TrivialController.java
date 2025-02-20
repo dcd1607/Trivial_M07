@@ -9,7 +9,7 @@ import javax.swing.Timer;
 
 public class TrivialController {
     private StartGUI startView;
-    private MainBoardGUI mainBoardView; // Declare mainBoardView
+    private MainBoardGUI mainBoardView;
     private Player player1;
     private Player player2;
     private Player currentPlayer;
@@ -36,8 +36,8 @@ public class TrivialController {
             currentPlayer = player1;
             currentQuestionIndex = 0;
 
-            questions = QuestionLoader.loadQuestionsFromXML("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\xml\\Preguntes2025.xml");
-            Collections.shuffle(questions); // Shuffle questions
+            questions = QuestionLoader.loadQuestionsFromXML("src/xml/Preguntes2025.xml");
+            Collections.shuffle(questions);
 
             mainBoardView = new MainBoardGUI(player1Name, player2Name);
             mainBoardView.addNextTurnListener(new NextTurnListener());
@@ -46,9 +46,9 @@ public class TrivialController {
             startView.dispose();
             updateTurnLabel();
 
-            // Stop the start music and start playing game music
+
             soundPlayer.stop();
-            soundPlayer.play("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\musica\\musica.mp3");
+            soundPlayer.play("src/musica/musica.mp3");
         }
     }
 
@@ -68,7 +68,7 @@ public class TrivialController {
             String correctOption = options.get(correctOptionIndex);
             Collections.shuffle(options); // Shuffle options
 
-            // Find the new index of the correct option after shuffling
+
             int newCorrectOptionIndex = options.indexOf(correctOption);
 
             QuestionGUI questionView = new QuestionGUI(question.getQuestionText(), options.toArray(new String[0]), newCorrectOptionIndex);
@@ -79,7 +79,7 @@ public class TrivialController {
             questionView.addOptionListener(new QuestionListener(question, questionView));
             questionView.addNextQuestionListener(new NextQuestionListener());
 
-            // Start the timer for 30 seconds
+
             if (questionTimer != null) {
                 questionTimer.stop();
             }
@@ -87,7 +87,7 @@ public class TrivialController {
             questionTimer.setRepeats(false);
             questionTimer.start();
 
-            // Start the progress bar timer
+
             if (progressBarTimer != null) {
                 progressBarTimer.stop();
             }
@@ -148,9 +148,6 @@ public class TrivialController {
             questionView.highlightSelectedAnswer(selectedOptionIndex, isCorrect);
             if (!isCorrect) {
                 questionView.highlightCorrectAnswer(questionView.getCorrectOptionIndex());
-                soundPlayer.playSoundEffect("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\musica\\incorrect_sound.wav");
-            } else {
-                soundPlayer.playSoundEffect("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\musica\\correct_sound.wav");
             }
 
             if (isCorrect) {
@@ -167,7 +164,7 @@ public class TrivialController {
             }
 
             questionView.showNextQuestionButton();
-            questionView.disableOptionButtons(); // Disable option buttons after answering
+            questionView.disableOptionButtons();
             switchPlayer();
             updateTurnLabel();
         }
@@ -199,9 +196,9 @@ public class TrivialController {
     private void triggerExplosionAndShowResult() {
         mainBoardView.getAirplaneRacePanel().showFullScreenExplosion();
 
-        // Ensure the explosion window is displayed
+
         SwingUtilities.invokeLater(() -> {
-            // Timer to wait for 1.5 seconds before showing the result
+
             Timer explosionTimer = new Timer(1500, e -> showResult());
             explosionTimer.setRepeats(false);
             explosionTimer.start();
@@ -209,7 +206,7 @@ public class TrivialController {
     }
 
     private void showResult() {
-        // Stop playing music
+
         soundPlayer.stop();
 
         String resultMessage = "¡Juego Terminado!\n";

@@ -15,7 +15,6 @@ public class StartGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Create a panel with a background image
         BackgroundPanel backgroundPanel = new BackgroundPanel(new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\fondo_menu.png").getImage());
         backgroundPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -66,8 +65,7 @@ public class StartGUI extends JFrame {
 
         add(backgroundPanel, BorderLayout.CENTER);
 
-        // Start playing the background music
-        soundPlayer.play("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\musica\\cancionTurca.mp3");
+        soundPlayer.play("src/musica/CancionTurca.mp3");
     }
 
     public void addStartListener(ActionListener listener) {
@@ -82,7 +80,6 @@ public class StartGUI extends JFrame {
         return player2Name.getText();
     }
 
-    // Custom panel to draw the background image
     class BackgroundPanel extends JPanel {
         private Image backgroundImage;
 

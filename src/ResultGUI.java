@@ -8,18 +8,18 @@ public class ResultGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Load the explosion GIF
-        ImageIcon backgroundIcon = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\explosion.gif");
+
+        ImageIcon backgroundIcon = new ImageIcon("src/Imagenes/explosion.gif");
         JLabel backgroundLabel = new JLabel(backgroundIcon);
         backgroundLabel.setLayout(new BorderLayout());
-        backgroundLabel.setBackground(Color.BLACK); // Set background color to black
-        backgroundLabel.setOpaque(true); // Make the background color visible
+        backgroundLabel.setBackground(Color.BLACK);
+        backgroundLabel.setOpaque(true);
         setContentPane(backgroundLabel);
 
-        // Create a panel for the result message
+
         JPanel messagePanel = new JPanel();
         messagePanel.setLayout(new BorderLayout());
-        messagePanel.setOpaque(false); // Make the panel transparent
+        messagePanel.setOpaque(false);
 
         JLabel resultLabel = new JLabel("<html><div style='text-align: center; color: white; font-size: 36px;'>" + message + "</div></html>");
         resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -28,7 +28,7 @@ public class ResultGUI extends JFrame {
 
         add(messagePanel, BorderLayout.CENTER);
 
-        // Ensure the window is visible
+
         setVisible(true);
     }
 }

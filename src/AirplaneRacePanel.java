@@ -16,10 +16,10 @@ public class AirplaneRacePanel extends JPanel {
         setPreferredSize(new Dimension(800, 200));
         setBackground(Color.WHITE);
 
-        airplaneIcon1 = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\airplane1.gif");
-        airplaneIcon2 = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\airplane2.gif");
-        airportIcon = resizeIcon(new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\airport.png"), 150, 150);
-        backgroundIcon = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\nuves.gif");
+        airplaneIcon1 = new ImageIcon("src/Imagenes/airplane1.gif");
+        airplaneIcon2 = new ImageIcon("src/Imagenes/airplane2.gif");
+        airportIcon = resizeIcon(new ImageIcon("src/Imagenes/airport.png"), 150, 150);
+        backgroundIcon = new ImageIcon("src/Imagenes/nuves.gif");
 
         airplaneLabel1 = new JLabel(airplaneIcon1);
         airplaneLabel2 = new JLabel(airplaneIcon2);
@@ -31,7 +31,7 @@ public class AirplaneRacePanel extends JPanel {
         add(airportLabel1);
         add(airportLabel2);
 
-        // Initial positions
+
         airplaneLabel1.setBounds(0, 50, airplaneIcon1.getIconWidth(), airplaneIcon1.getIconHeight());
         airplaneLabel2.setBounds(0, 100, airplaneIcon2.getIconWidth(), airplaneIcon2.getIconHeight());
     }
@@ -39,7 +39,7 @@ public class AirplaneRacePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        // Draw the background image
+
         g.drawImage(backgroundIcon.getImage(), 0, 0, getWidth(), getHeight(), this);
 
         int panelWidth = getWidth();
@@ -61,24 +61,24 @@ public class AirplaneRacePanel extends JPanel {
     }
 
     public void showFullScreenExplosion() {
-        // Create a borderless window for the explosion
+
         JWindow explosionWindow = new JWindow();
         explosionWindow.setLayout(new BorderLayout());
 
-        // Load the explosion image
-        ImageIcon explosionIcon = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\explosion.gif");
+
+        ImageIcon explosionIcon = new ImageIcon("src/Imagenes/explosion.gif");
         JLabel explosionLabel = new JLabel(explosionIcon);
         explosionLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
-        // Add the image to the window
+
         explosionWindow.add(explosionLabel, BorderLayout.CENTER);
 
-        // Set the window to cover the entire screen
+
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         explosionWindow.setBounds(0, 0, screenSize.width, screenSize.height);
         explosionWindow.setVisible(true);
 
-        // Timer to close the explosion after 1.5 seconds
+
         Timer timer = new Timer(1500, e -> explosionWindow.dispose());
         timer.setRepeats(false);
         timer.start();

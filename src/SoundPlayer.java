@@ -47,7 +47,7 @@ public class SoundPlayer {
     private void stopMusic() {
         try {
             if (player != null) {
-                player.close(); // Atura la música correctament
+                player.close();
             }
             if (playerThread != null && playerThread.isAlive()) {
                 playerThread.interrupt();

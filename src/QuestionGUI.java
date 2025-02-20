@@ -14,7 +14,7 @@ public class QuestionGUI extends JPanel {
 
     public QuestionGUI(String questionText, String[] options, int correctOptionIndex) {
         this.correctOptionIndex = correctOptionIndex;
-        this.backgroundImage = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\fondo.png"); // Set your background image path here
+        this.backgroundImage = new ImageIcon("src/Imagenes/fondo.png");
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -24,7 +24,7 @@ public class QuestionGUI extends JPanel {
         timeLabel = new JLabel("30 segundos restantes");
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         timeLabel.setFont(new Font("Arial", Font.BOLD, 18));
-        timeLabel.setForeground(Color.WHITE); // Set the text color to white
+        timeLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
@@ -32,7 +32,7 @@ public class QuestionGUI extends JPanel {
 
         JPanel questionPanel = new JPanel();
         questionPanel.setLayout(new GridBagLayout());
-        questionPanel.setOpaque(false); // Make the panel transparent
+        questionPanel.setOpaque(false);
         GridBagConstraints panelGbc = new GridBagConstraints();
         panelGbc.insets = new Insets(10, 10, 10, 10);
         panelGbc.fill = GridBagConstraints.HORIZONTAL;
@@ -46,7 +46,7 @@ public class QuestionGUI extends JPanel {
         questionPanel.add(questionLabel, panelGbc);
 
         JPanel optionsPanel = new JPanel(new GridLayout(2, 2, 10, 10));
-        optionsPanel.setOpaque(false); // Make the panel transparent
+        optionsPanel.setOpaque(false);
         optionButtons = new JButton[4];
         for (int i = 0; i < 4; i++) {
             optionButtons[i] = new JButton(options[i]);

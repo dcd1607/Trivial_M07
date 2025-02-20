@@ -20,7 +20,6 @@ public class MainBoardGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Panel superior para la carrera de aviones
         racePanel = new JPanel();
         racePanel.setLayout(new BoxLayout(racePanel, BoxLayout.Y_AXIS));
         airplaneRacePanel = new AirplaneRacePanel();
@@ -50,7 +49,7 @@ public class MainBoardGUI extends JFrame {
 
         add(racePanel, BorderLayout.NORTH);
 
-        // Panel inferior para las preguntas
+
         questionPanel = new JPanel(new BorderLayout());
         turnLabel = new JLabel("Turno: Jugador 1");
         turnLabel.setFont(new Font("Arial", Font.BOLD, 24));
