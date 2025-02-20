@@ -41,11 +41,19 @@ public class SoundPlayer {
 
     public void stop() {
         loop = false;
-        if (player != null) {
-            player.close();
-        }
-        if (playerThread != null) {
-            playerThread.interrupt();
+        stopMusic();
+    }
+
+    private void stopMusic() {
+        try {
+            if (player != null) {
+                player.close(); // Atura la música correctament
+            }
+            if (playerThread != null && playerThread.isAlive()) {
+                playerThread.interrupt();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

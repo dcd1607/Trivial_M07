@@ -9,7 +9,7 @@ import javax.swing.Timer;
 
 public class TrivialController {
     private StartGUI startView;
-    private MainBoardGUI mainBoardView;
+    private MainBoardGUI mainBoardView; // Declare mainBoardView
     private Player player1;
     private Player player2;
     private Player currentPlayer;
@@ -20,10 +20,10 @@ public class TrivialController {
     private SoundPlayer soundPlayer;
 
     public TrivialController() {
-        startView = new StartGUI();
+        soundPlayer = new SoundPlayer();
+        startView = new StartGUI(soundPlayer);
         startView.addStartListener(new StartListener());
         startView.setVisible(true);
-        soundPlayer = new SoundPlayer();
     }
 
     private class StartListener implements ActionListener {
@@ -36,7 +36,7 @@ public class TrivialController {
             currentPlayer = player1;
             currentQuestionIndex = 0;
 
-            questions = QuestionLoader.loadQuestionsFromXML("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Preguntes2025.xml");
+            questions = QuestionLoader.loadQuestionsFromXML("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\xml\\Preguntes2025.xml");
             Collections.shuffle(questions); // Shuffle questions
 
             mainBoardView = new MainBoardGUI(player1Name, player2Name);
@@ -46,8 +46,9 @@ public class TrivialController {
             startView.dispose();
             updateTurnLabel();
 
-            // Start playing music
-            soundPlayer.play("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\musica.mp3");
+            // Stop the start music and start playing game music
+            soundPlayer.stop();
+            soundPlayer.play("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\musica\\musica.mp3");
         }
     }
 
@@ -147,9 +148,9 @@ public class TrivialController {
             questionView.highlightSelectedAnswer(selectedOptionIndex, isCorrect);
             if (!isCorrect) {
                 questionView.highlightCorrectAnswer(questionView.getCorrectOptionIndex());
-                soundPlayer.playSoundEffect("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\incorrect_sound.wav");
+                soundPlayer.playSoundEffect("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\musica\\incorrect_sound.wav");
             } else {
-                soundPlayer.playSoundEffect("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\correct_sound.wav");
+                soundPlayer.playSoundEffect("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\musica\\correct_sound.wav");
             }
 
             if (isCorrect) {

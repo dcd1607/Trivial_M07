@@ -1,3 +1,4 @@
+// QuestionGUI.java
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -13,7 +14,7 @@ public class QuestionGUI extends JPanel {
 
     public QuestionGUI(String questionText, String[] options, int correctOptionIndex) {
         this.correctOptionIndex = correctOptionIndex;
-        this.backgroundImage = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\fondo.png"); // Set your background image path here
+        this.backgroundImage = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\fondo.png"); // Set your background image path here
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -23,6 +24,7 @@ public class QuestionGUI extends JPanel {
         timeLabel = new JLabel("30 segundos restantes");
         timeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         timeLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        timeLabel.setForeground(Color.WHITE); // Set the text color to white
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
@@ -35,7 +37,7 @@ public class QuestionGUI extends JPanel {
         panelGbc.insets = new Insets(10, 10, 10, 10);
         panelGbc.fill = GridBagConstraints.HORIZONTAL;
 
-        questionLabel = new JLabel("<html><div style='text-align: center;'>" + questionText + "</div></html>");
+        questionLabel = new JLabel("<html><div style='text-align: center; color: white;'>" + questionText + "</div></html>");
         questionLabel.setHorizontalAlignment(SwingConstants.CENTER);
         questionLabel.setFont(new Font("Arial", Font.BOLD, 24));
         panelGbc.gridx = 0;

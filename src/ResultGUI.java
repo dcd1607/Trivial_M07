@@ -9,7 +9,7 @@ public class ResultGUI extends JFrame {
         setLayout(new BorderLayout());
 
         // Load the explosion GIF
-        ImageIcon backgroundIcon = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\explosion.gif");
+        ImageIcon backgroundIcon = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\explosion.gif");
         JLabel backgroundLabel = new JLabel(backgroundIcon);
         backgroundLabel.setLayout(new BorderLayout());
         backgroundLabel.setBackground(Color.BLACK); // Set background color to black

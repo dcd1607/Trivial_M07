@@ -16,10 +16,10 @@ public class AirplaneRacePanel extends JPanel {
         setPreferredSize(new Dimension(800, 200));
         setBackground(Color.WHITE);
 
-        airplaneIcon1 = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\airplane1.gif");
-        airplaneIcon2 = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\airplane2.gif");
-        airportIcon = resizeIcon(new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\airport.png"), 150, 150);
-        backgroundIcon = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\nuves.gif");
+        airplaneIcon1 = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\airplane1.gif");
+        airplaneIcon2 = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\airplane2.gif");
+        airportIcon = resizeIcon(new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\airport.png"), 150, 150);
+        backgroundIcon = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\nuves.gif");
 
         airplaneLabel1 = new JLabel(airplaneIcon1);
         airplaneLabel2 = new JLabel(airplaneIcon2);
@@ -66,7 +66,7 @@ public class AirplaneRacePanel extends JPanel {
         explosionWindow.setLayout(new BorderLayout());
 
         // Load the explosion image
-        ImageIcon explosionIcon = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\explosion.gif");
+        ImageIcon explosionIcon = new ImageIcon("C:\\Users\\danie\\IdeaProjects\\Trivial_M07\\src\\Imagenes\\explosion.gif");
         JLabel explosionLabel = new JLabel(explosionIcon);
         explosionLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
